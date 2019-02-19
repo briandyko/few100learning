@@ -64,4 +64,16 @@ describe('variables and constants and stuff', () => {
 
         });
     });
+
+    describe('various literals', () => {
+        it('examples', () => {
+            let n1 = 12; // number
+            let n2 = 1.2; // still a number
+            let n3 = 0xff; //still a number, but hexadecimal (base 16)
+            let n4 = 0b00101; //still a number, but in binary.
+            let n5 = 0o744; // octal. Who the heck uses that?
+            //typesript thing
+            const salary = 1_000_000; //can be used in lieu of commas, which cannot be used like normal obviously
+        });
+    });
 });
