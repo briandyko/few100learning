@@ -99,7 +99,7 @@ describe('variables and constants and stuff', () => {
                 let age = warren[2];    // typeof: number
             });
             it('an example', () => {
-                // first is typed as string, last is typed as string, and the function returns string hence the first:string, last: string, the function returns a tuple containing a string and a number
+                // first is typed as string, last is typed as string, hence the first:string, last: string, the function returns a tuple containing a string and a number
                 function formatName(first: string, last: string): [string, number] {
                     const fullName = `${last}, ${first}`;
                     return [fullName, fullName.length];
@@ -114,6 +114,26 @@ describe('variables and constants and stuff', () => {
                 const [firstName, , age] = stuff; // the destructuring where firstName is create based on element 0 and age is created based on element 2 of the stuff tuple/array, note the empty comma section which says to do nothing with element 1o
                 expect(firstName).toBe('Jeff');
                 expect(age).toBe(49);
+            });
+            it('another oop example', () => {
+
+                interface FormattedName {
+                    fullName: string;
+                    length: number;
+                }
+                // public FormattedName formatName(string first, string last) {...}
+                function formatName(first: string, last: string): FormattedName {
+                    const fullName = `${last}, ${first}`;
+                    return { fullName, length: fullName.length };
+                }
+                const { fullName, length } = formatName('Han', 'Solo'); // destructuring
+                expect(fullName).toBe('Solo, Han');
+                expect(length).toBe(9);
+
+
+                const stuff = ['Jeff', 'Gonzalez', 49];
+                const [firstName, , age] = stuff;
+
             });
         });
     });
